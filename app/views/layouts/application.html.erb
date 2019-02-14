@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ozenski1</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">    <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Montserrat', media: 'all', 'data-turbolinks-track' => true %>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  </head>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </head>
+  <body>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+        <img src="https://image.fnbr.co/outfit/5b335625bbe87a7e3f6aac35/png.png" height="50" class="d-inline-block align-top"
+             <%= link_to root_path, class: "navbar-brand" do %>
+          <h2>Event2Brite</h2>
+        <% end %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <%= link_to 'Accueil', root_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to 'Create event', new_event_path, class: "nav-link" %>
+            </li>
+            <% if user_signed_in? %>
+              <li class="nav-item active">
+                <%= link_to "Mon Profil", user_path(current_user), class: "nav-link" %>
+              </li>
+              <li class="nav-item active">
+                <%= link_to "Se déconnecter", destroy_user_session_path, class: "nav-link", method: :delete %>
+              </li>
+            <% else %>
+              <li class="nav-item active">
+                <%= link_to "S'inscrire", new_user_registration_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item active">
+                <%= link_to "Se connecter" , new_user_session_path, class: "nav-link"  %>
+              </li>
+            <% end %>
+
+          </ul>
+          </div>
+        </div>
+      </nav>
+  </body>
+
+    <% flash.each do |key, value| %>
+      <div class="alert alert-warning alert-dismissible fade show mb-0"><%= value %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <% end %>
+
+    <%= yield %>
+
+    <footer class="text-center text-secondary p-5">
+      <div class="my-4">
+        <%= link_to root_path, class: "h1 text-decoration-none" do %>
+
+        <% end %>
+      </div>
+      <p class="h5 mb-5">Copyright© </i> by
+        <a href="https://www.chosesasavoir.com/wp-content/uploads/2016/11/doigt-dhonneur.jpg" class="">Me</a> 2k19</p>
+    </footer>
+</html>
