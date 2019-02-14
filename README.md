@@ -10,3 +10,4 @@ Rend toi sur : http://www.yopmail.com (mail@yopmail.com)
 -
 Toujours dans la console > attendance = Attendance.create(stripe_customer_id:47, event_id:1, user_id:3)
 ------
+https://mysterious-savannah-39332.herokuapp.com/
